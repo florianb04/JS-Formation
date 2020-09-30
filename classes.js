@@ -25,9 +25,9 @@ class Stagiaire {
     
     generateId(tabStagiaires){ // creation d'auto incrementation sans BDD
         let maxId = 0
-        tabStagiaires.forEach(function(stagiaire)) {
+        tabStagiaires.forEach(function(stagiaire) {
             if (stagiaire.id > maxId) maxId = stagiaire.id
-        }
+        })
         return maxId + 1
     }
 

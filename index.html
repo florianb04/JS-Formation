@@ -23,7 +23,8 @@
 
 <body>
 
-    <form class="text-center" style="width: 50%; margin:auto">
+    <!-- Ajout de stagiaires -->
+    <form method="" action=""  id="createStagiaire" class="text-center border border-dark mb-5 mt-5" style="width: 50%; margin:auto; padding:2em;">
         <div class="form-group">
           <label for="nom">Nom</label>
           <input class="form-control" type="text" name="nom" id="stagiaireNom">
@@ -35,15 +36,45 @@
         </div>
 
         <div class="form-group">
-        <label for="dateNais">Date de Naissance</label>
-        <input class="form-control" type="date" name="dateNais" id="stagiaireDateNais">
+            <label for="dateNais">Date de Naissance</label>
+            <input class="form-control" type="date" name="dateNais" id="stagiaireDateNais">
         </div>
 
         <button type="submit" class="btn btn-primary" id="saveStagiaire">Enregistrer</button>
 
-      </form>
+    </form>
+
+    <!-- Ajout de notes -->
+    <form method="" action="" id="createNote" class="text-center border border-dark mb-5" style="width: 50%; margin:auto; padding:2em;">
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Selectionnez un stagiare</label>
+            <select multiple class="form-control" name="listStagiaire" id="listStagiaire">
+            <!-- <option>1</option>
+            <option>2</option>
+             -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="note">Note :</label>
+            <input class="form-control" type="text" name="note" id="noteNote">
+        </div>
+
+        <div class="form-group">
+            <label for="coef">Coef :</label>
+            <input class="form-control" type="text" name="coef" id="noteCoef">
+        </div>
+
+        <div class="form-group">
+            <label for="matiere">Matiere :</label>
+            <input class="form-control" type="text" name="matiere" id="noteMatiere">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="saveNote">Enregistrer</button>
 
 
+    </form>
 
 </body>
 </html>
