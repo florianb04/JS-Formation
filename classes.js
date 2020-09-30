@@ -18,10 +18,20 @@ class Stagiaire {
         this.nom = nom
         this.prenom = prenom
         this.dateNais = dateNais
+        this.id = 0
         this.notes = []
         
     }
     
+    generateId(tabStagiaires){ // creation d'auto incrementation sans BDD
+        let maxId = 0
+        tabStagiaires.forEach(function(stagiaire)) {
+            if (stagiaire.id > maxId) maxId = stagiaire.id
+        }
+        return maxId + 1
+    }
+
+
 
     /**
      * 
@@ -79,12 +89,12 @@ class Formation {
 
 
     ajouterMatiere (nom) { 
-        this.matiere.push(new Matiere((nom))
+        this.matiere.push(new Matiere(nom) )
     }
 
 
     ajouterStagiaire (nom, prenom, dateNais) { 
-        this.stagiaires.push(new Stagiaire((nom, prenom, dateNais))
+        this.stagiaires.push(new Stagiaire(nom, prenom, dateNais) )
     }
 
 
@@ -134,13 +144,13 @@ class Formateur {
 }
 
 
-let john = new Stagiaire("Smith", "John", "10/10/1990")
-let massiani = new Formateur("Massiani", "Gregory")
-let javaScript = new Matiere("JavaScript")
-javaScript.ajouterFormateur(massiani)
+// let john = new Stagiaire("Smith", "John", "10/10/1990")
+// let massiani = new Formateur("Massiani", "Gregory")
+// let javaScript = new Matiere("JavaScript")
+// javaScript.ajouterFormateur(massiani)
 
-console.log(john)
-console.log(javaScript)
+// console.log(john)
+// console.log(javaScript)
 
 
 
