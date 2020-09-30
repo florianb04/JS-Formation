@@ -37,6 +37,9 @@ function createOption () {
 
     const select = document.querySelector('#listStagiaire')
 
+    // on vide le select avant de le réutiliser
+    select.innerHTML = ""
+
     stagiaires.forEach(function(stagiaire) {
         //<option value="id"> Prenom Nom </option>
 
