@@ -19,7 +19,7 @@ class Stagiaire {
         this.prenom = prenom
         this.dateNais = dateNais
         this.id = 0
-        this.notes = []
+        // this.notes = []
         
     }
     
@@ -40,14 +40,17 @@ class Stagiaire {
      * @param {matiere dans laquel la note est reçus } matiere_1 
      */
     ajouterNote(note_1, coef_1, matiere_1) {
+
+        const note = new Note(this.id, note_1, coef_1, matiere_1)
+        return note
         
-        let objNote = {
-            note: note_1,
-            coef: coef_1,
-            matiere: matiere_1
-        }
+        // let objNote = {
+        //     note: note_1,
+        //     coef: coef_1,
+        //     matiere: matiere_1
+        // }
         
-        this.notes.push(objNote)
+        // this.notes.push(objNote)
         
     }
 
@@ -101,8 +104,16 @@ class Formation {
 }
 
 class Note {
-    constructor(note, coef, matiere) {
-    
+
+    /**
+     * 
+     * @param {*} id 
+     * @param {*} note 
+     * @param {*} coef 
+     * @param {*} matiere 
+     */
+    constructor( id ,note, coef, matiere) {
+        this.id = id // ID du stagiaire
         this.note = note
         this.coef = coef
         this.matiere = matiere
@@ -148,6 +159,9 @@ class Formateur {
 // let massiani = new Formateur("Massiani", "Gregory")
 // let javaScript = new Matiere("JavaScript")
 // javaScript.ajouterFormateur(massiani)
+
+
+// jonh.ajouterNote(15,2,"JavaScript")
 
 // console.log(john)
 // console.log(javaScript)

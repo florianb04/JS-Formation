@@ -1,4 +1,25 @@
 let stagiaires = []
+let notes = []
+
+document.querySelector("#saveNote").addEventListener('click', function(event){
+    event.stopPropagation()
+    event.preventDefault()
+
+    let note = document.querySelector('#noteNote')
+    let coef = document.querySelector('#noteCoef')
+    let matiere = document.querySelector('#noteMatiere')
+    let list = document.querySelector('#listStagiaire')
+
+
+    stagiaires.forEach(function(stagiaire){ // pour chaque stagiaire
+
+        if (stagiaire.id === parseInt(list.value) ) { // si id = id
+            notes.push(stagiaire.ajouterNote(note.value, coef.value, matiere.value))
+        }
+    })
+
+    console.log(notes)
+})
 
 document.querySelector("#saveStagiaire").addEventListener('click',
 
@@ -27,35 +48,39 @@ function (event) {
     // afficher le tableau complet de stagiares
     console.log(stagiaires)
 
-    createOption()
+    // createOption()
+    createOption( '#listStagiaire' , stagiaire.id,stagiaire.prenom + " " + stagiaire.nom )
 
 })
 
 
 
-function createOption () {
+function createOption (elementSelect, id, text) {
 
-    const select = document.querySelector('#listStagiaire')
+    const select = document.querySelector(elementSelect)
 
     // on vide le select avant de le réutiliser
-    select.innerHTML = ""
+    // select.innerHTML = ""
 
-    stagiaires.forEach(function(stagiaire) {
+    // stagiaires.forEach(function(stagiaire) {
         //<option value="id"> Prenom Nom </option>
 
         //creation de l'élément <option> </option>
         let option = document.createElement('option')
 
         // on attribue la value=""
-        option.setAttribute('value',stagiaire.id)
+        // option.setAttribute('value',stagiaire.id)
+        option.setAttribute('value',id)
+
 
         // on met du text dans notre balise
-        option.innerText = stagiaire.prenom + " " + stagiaire.nom
+        // option.innerText = stagiaire.prenom + " " + stagiaire.nom
+        option.innerText = text
+
 
         select.appendChild(option)
 
-    })
-
+    // })
 
 }
 
