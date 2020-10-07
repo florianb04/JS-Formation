@@ -54,28 +54,7 @@ class Stagiaire {
         
     }
 
-    /* calcule de la moyenne des notes de l'eleve avec les coefficients */
-    moyenneNote( ) {
 
-        let sommeNoteCoef = 0
-        let sommeCoef = 0
-    
-        this.notes.forEach(function(element) {
-            sommeNoteCoef += element.note * element.coef
-            sommeCoef += element.coef
-        });
-
-        if (sommeCoef != 0 && this.notes.length !=0) {
-            let moyenneTotal
-            moyenneTotal = sommeNoteCoef /sommeCoef
-            return 'la moyenne de '+this.prenom+' '+this.nom+' est de '+moyenneTotal
-            }
-        else {
-            return -1
-            }
-
-
-    }
     
 }
 
@@ -114,9 +93,36 @@ class Note {
      */
     constructor( id ,note, coef, matiere) {
         this.id = id // ID du stagiaire
-        this.note = note
-        this.coef = coef
+        this.note = parseFloat(note)
+        this.coef = parseInt(coef)
         this.matiere = matiere
+    }
+
+    /* calcule de la moyenne des notes de l'eleve avec les coefficients */
+    static moyenneNote(tableauNotes,idStagiaire = -1) {
+
+        // sommes des notes*coef
+        // sommes des coef
+
+        let sommeNoteCoef = 0
+        let sommeCoef = 0
+    
+        tableauNotes.forEach(function(element) {
+            if (element.id === idStagiaire || idStagiaire === -1) {
+                sommeNoteCoef += element.note * element.coef
+                sommeCoef += element.coef
+            }
+
+        });
+
+        if (sommeCoef != 0 && tableauNotes.length !=0) {
+            return sommeNoteCoef /sommeCoef
+            }
+        else {
+            return -1
+            }
+
+
     }
 }
 
